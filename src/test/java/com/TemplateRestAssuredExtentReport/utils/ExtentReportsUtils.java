@@ -6,6 +6,8 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.TemplateRestAssuredExtentReport.GlobalParameters;
 import com.TemplateRestAssuredExtentReport.enums.AuthenticationType;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
 import org.testng.ITestResult;
@@ -16,15 +18,20 @@ public class ExtentReportsUtils
 {
     public static ExtentReports EXTENT_REPORT = null;
     public static ExtentTest TEST;
-    public static ExtentHtmlReporter HTML_REPORTER = null;
+    public static ExtentSparkReporter HTML_REPORTER = null;
     static String reportName = GlobalParameters.REPORT_NAME + "_" + GeneralUtils.getNowDate("yyyy-MM-dd_HH-mm-ss");
     static String reportsPath = GlobalParameters.REPORT_PATH;
     static String fileName = reportName+".html";
-    static String fullReportFilePath = reportsPath + "/"+ reportName +"/" + fileName;
+    static String fullReportFilePath = reportsPath + "/"+ fileName;
+
 
     public static void createReport(){
+        if (GlobalParameters.REPORT_BY_EXECUTION.equals("true"))
+            fullReportFilePath = reportsPath + "/"+ reportName +"/" + fileName;
         if (EXTENT_REPORT == null){
-            HTML_REPORTER = new ExtentHtmlReporter(fullReportFilePath);
+            HTML_REPORTER = new ExtentSparkReporter(fullReportFilePath);
+            HTML_REPORTER.config().setTheme(Theme.DARK);
+            HTML_REPORTER.config().setReportName(GlobalParameters.REPORT_NAME);
             EXTENT_REPORT = new ExtentReports();
             EXTENT_REPORT.attachReporter(HTML_REPORTER);
         }

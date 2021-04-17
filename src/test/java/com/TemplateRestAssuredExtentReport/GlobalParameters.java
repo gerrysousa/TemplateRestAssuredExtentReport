@@ -19,6 +19,7 @@ public class GlobalParameters {
     public static String TOKEN;
     public static String AUTHENTICATOR_USER;
     public static String AUTHENTICATOR_PASSWORD;
+    public static String REPORT_BY_EXECUTION;
 
     private Properties properties;
 
@@ -38,6 +39,7 @@ public class GlobalParameters {
         REPORT_NAME = properties.getProperty("report.name");
         REPORT_PATH = properties.getProperty("report.path");
         ENVIROMENT = properties.getProperty("enviroment");
+        REPORT_BY_EXECUTION = properties.getProperty("report.separate.by.execution");
 
         if(ENVIROMENT.equals("qa")){
             DB_URL = properties.getProperty("qa.db.url");
