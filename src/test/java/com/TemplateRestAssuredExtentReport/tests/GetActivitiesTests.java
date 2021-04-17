@@ -2,7 +2,6 @@ package com.TemplateRestAssuredExtentReport.tests;
 
 import com.TemplateRestAssuredExtentReport.bases.TestBase;
 import com.TemplateRestAssuredExtentReport.requests.GetActivitiesRequest;
-import com.TemplateRestAssuredExtentReport.requests.GetPetRequest;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;

@@ -1,9 +1,8 @@
 package com.TemplateRestAssuredExtentReport.bases;
 
 import com.TemplateRestAssuredExtentReport.GlobalParameters;
-import com.TemplateRestAssuredExtentReport.steps.AutenticacaoSteps;
+import com.TemplateRestAssuredExtentReport.steps.AuthenticationSteps;
 import com.TemplateRestAssuredExtentReport.utils.ExtentReportsUtils;
-import org.codehaus.groovy.transform.tailrec.GotoRecurHereException;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -17,13 +16,13 @@ public abstract class TestBase {
     public void beforSuite(){
         new GlobalParameters();
         ExtentReportsUtils.createReport();
-        //AutenticacaoSteps.gerarToken(GlobalParameters.AUTHENTICATOR_USER, GlobalParameters.AUTHENTICATOR_PASSWORD); ==> caso a geração de token deva ser feita quando iniciar a bateria de testes
+        //AuthenticationSteps.getToken(GlobalParameters.AUTHENTICATOR_USER, GlobalParameters.AUTHENTICATOR_PASSWORD);// If need token before suite tests execution
     }
 
     @BeforeMethod
     public void beforeTest(Method method){
         ExtentReportsUtils.addTest(method.getName(), method.getDeclaringClass().getSimpleName());
-        //AutenticacaoSteps.gerarToken(GlobalParameters.AUTHENTICATOR_USER, GlobalParameters.AUTHENTICATOR_PASSWORD); ==> caso a geração de token deva ser feita antes de iniciar cada teste
+        //AuthenticationSteps.getToken(GlobalParameters.AUTHENTICATOR_USER, GlobalParameters.AUTHENTICATOR_PASSWORD);// If need token before each tests execution
     }
 
     @AfterMethod
