@@ -3,7 +3,6 @@ package com.TemplateRestAssuredExtentReport.utils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.TemplateRestAssuredExtentReport.GlobalParameters;
 import com.TemplateRestAssuredExtentReport.enums.AuthenticationType;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;

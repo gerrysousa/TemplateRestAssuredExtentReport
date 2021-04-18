@@ -55,4 +55,12 @@ public abstract class RequestRestBase {
     public void setMehtod(Method method){
         this.method = method;
     }
+
+    public void addQueryParameters(String parameter, String value){
+        queryParameters.put(parameter, value);
+    }
+
+    public void addHeaders(String parameter, String value){
+        headers.put(parameter, value);
+    }
 }
