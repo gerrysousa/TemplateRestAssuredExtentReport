@@ -85,4 +85,8 @@ public class GeneralUtils {
 
         return ret;
     }
+
+    public static String getDateFormat_yyyyMMddHHmmss() {
+        return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+    }
 }
